@@ -14,17 +14,15 @@ Parser for data read from Arduino.
 Usage
 -----
 
+Open a console and execute::
+
+  $ echo '1,DAT,20161212' | cosmicpi-protocol
+  ["protocol-v1.0:date", {"date": "20161210"}]
+
 Installation
 ------------
 
-Requirements
-^^^^^^^^^^^^
-
-Compatibility
--------------
-
-Licence
--------
+Clone this repository and run `pip install -e .`
 
 Authors
 -------

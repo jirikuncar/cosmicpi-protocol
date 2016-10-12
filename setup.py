@@ -13,7 +13,20 @@ setuptools.setup(
 
     packages=setuptools.find_packages(),
 
-    install_requires=[],
+    install_requires=[
+        'click',
+        'pyyaml',
+        'werkzeug',
+    ],
+
+    entry_points={
+        'console_scripts': [
+            'cosmicpi-protocol = cosmicpi_protocol.__main__:cli',
+        ],
+        'cosmicpi.protocols': [
+            'protocol-v1.0 = cosmicpi_protocol',
+        ],
+    },
 
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
