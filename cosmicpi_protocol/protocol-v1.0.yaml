@@ -1,0 +1,10 @@
+rules:
+    humidity: "1,HTU,<float:temperature>,<float:humidity>"
+    barrometric_pressure: "1,BMP,<float:temperature>,<float:barrometric_pressure>"
+    siesmic_vibration: "1,VIM,<int:axis>,<int:count>"
+    magnetometer: "1,MAG,<float:x>,<float:y>,<float:z>"
+    accelerometer: "1,ACL,<float:x>,<float:y>,<float:z>"
+    location: "1,LOC,<float:lattitude>,<float:longitude>,<float:altitude>"
+    timestamp: "1,TIM,<int:time_since_boot>,<int:master_clock_frequency>,<str:time_hhmmss>"
+    status: "1,STS,<int:event_queue_size>,<int:missed_event_count>,<int:terminal_io_error>,<int:terminal_max_buffer_size>,<int:htu_ok_flag>,<int:bmp>,<int:acl>,<int:mag>,<int:gps>,<int:adc_samples_per_channel>,<int:gps_read_increment>,<int:event_dump_threshold>,<int:active_channel_mask>"
+    cosmic_ray_event: "1,EVT,<int:master_clock_frequency>,<int:clock_ticks_since_last_event>,<str:time_hhmmss>,<int:channel_0_value_count>,<str:channel_0_values>,<int:channel_1_value_count>,<str:channel_1_values>"
