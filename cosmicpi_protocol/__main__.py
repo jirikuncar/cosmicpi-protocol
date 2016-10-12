@@ -10,8 +10,8 @@ from . import Parser
 
 
 @click.command()
-@click.argument('input_', type=click.File('rb'))
-@click.argument('output', type=click.File('wb'))
+@click.argument('input_', type=click.File('rb'), default='-')
+@click.argument('output', type=click.File('wb'), default='-')
 def cli(input_, output):
     """Parse input file and print JSON output."""
     parser = Parser()
