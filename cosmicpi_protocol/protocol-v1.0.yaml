@@ -6,6 +6,6 @@ rules:
     humidity: "1,HTU,<float:temperature>,<float:humidity>"
     location: "1,LOC,<float:lattitude>,<float:longitude>,<float:altitude>"
     magnetometer: "1,MAG,<float:x>,<float:y>,<float:z>"
-    siesmic_vibration: "1,VIM,<int:axis>,<int:count>"
+    siesmic_vibration: "1,VIB,<int:axis>,<int:count>"
     status: "1,STS,<int:event_queue_size>,<int:missed_event_count>,<int:terminal_io_error>,<int:terminal_max_buffer_size>,<int:htu_ok_flag>,<int:bmp>,<int:acl>,<int:mag>,<int:gps>,<int:adc_samples_per_channel>,<int:gps_read_increment>,<int:event_dump_threshold>,<int:active_channel_mask>"
     timestamp: "1,TIM,<int:time_since_boot>,<int:master_clock_frequency>,<string:time>"

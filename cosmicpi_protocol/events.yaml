@@ -1,0 +1,7 @@
+timers:
+- 1: [date, status]
+- 1: [date, timestamp, location, humidity, barrometric_pressure]
+
+triggers:
+  cosmic_ray_event: [cosmic_ray_event, timestamp, location, humidity, barrometric_pressure]
+  siesmic_vibration: [siesmic_vibration, timestamp, location, megnetometer, accelerometer]
