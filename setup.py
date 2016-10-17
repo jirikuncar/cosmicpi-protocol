@@ -15,6 +15,7 @@ setuptools.setup(
 
     install_requires=[
         'click',
+        'pika',
         'pyyaml',
         'werkzeug',
     ],

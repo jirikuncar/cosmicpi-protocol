@@ -1,5 +1,7 @@
 """Command line interface for testing protocols."""
 
+from __future__ import absolute_import
+
 import json
 import sys
 
@@ -7,6 +9,7 @@ import click
 from werkzeug.exceptions import NotFound
 
 from . import Detector, Parser
+from .publisher import Publisher
 
 
 @click.group()
@@ -35,16 +38,29 @@ def parse(input_, output):
 @cli.command()
 @click.argument('input_', type=click.File('rb'), default='-')
 @click.argument('output', type=click.File('wb'), default='-')
-def run(input_, output):
+@click.option(
+    '--broker',
+    help='AMQP broker URI (e.g. amqp://test:test@cosmicpi-alpha.gotdns.ch:8080).'
+)
+def run(input_, output, broker):
     """Run simple event agregator."""
     from threading import Thread, Timer
 
     detector = Detector()
 
     def worker():
+        publisher = None
+        try:
+            if broker:
+                publisher = Publisher(broker)
+        except Exception:
+            pass
+
         while True:
             item = detector.queue.get()
             output.write(json.dumps(item))
+            if publisher:
+                publisher.publish(item)
             output.write('\n')
             output.flush()
             detector.queue.task_done()
